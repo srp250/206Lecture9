@@ -1,6 +1,5 @@
-
 #ny-simple.py
-from secrets import *
+from secrets import nyt_key
 import requests
 
 # gets stories from a particular section of NY times
