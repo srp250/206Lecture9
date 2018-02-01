@@ -1,6 +1,8 @@
 #ny-simple.py
-from secrets import nyt_key
 import requests
+import secrets
+
+nyt_key = "7a4d814ee4074a948987047e52edd3bf"
 
 # gets stories from a particular section of NY times
 def get_stories(section):
@@ -9,14 +11,6 @@ def get_stories(section):
     params={'api-key': nyt_key}
     return requests.get(extendedurl, params).json()
 
-def get_headlines(nyt_results_dict):
-    results = nyt_results_dict['results']
-    headlines = []
-    for r in results:
-        headlines.append(r['title'])
-    return headlines
-
-story_list_json = get_stories('science')
-headlines = get_headlines(story_list_json)
-for h in headlines:
-    print(h)
+section = 'science'
+stories = get_stories(section)
+print(stories)
